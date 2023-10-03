@@ -1,0 +1,5 @@
+Q1. In GitHub Desktop, where does the new file appear?
+It appears on the left side, under the category changes.
+
+Q2. What do you see in GitHub Desktop?
+I see the changes done to the file.
