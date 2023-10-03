@@ -3,3 +3,12 @@ It appears on the left side, under the category changes.
 
 Q2. What do you see in GitHub Desktop?
 I see the changes done to the file.
+
+Q3. Where can you find the history of changes to the repository?
+On the column on the left, under the "history" tab.
+
+Q4. Which version of README can you see now?
+The old one.
+
+Q5. What appears in the second tab at the very top?
+Detached HEAD
