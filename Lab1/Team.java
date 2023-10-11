@@ -1,7 +1,5 @@
 import java.util.LinkedList;
 
-
-
 public class Team {
 	private String name;
     private Country country;
