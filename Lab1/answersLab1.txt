@@ -1,15 +1,27 @@
 
-1. An introduction where the problem is described. For example, what should the program do?
-Which classes do you have to define? Which methods do you have to implement for these classes?
+1. An introduction where the problem is described. For example, what should the program do? Which classes do you have to define? Which methods do you have to implement for these classes?
+The program should be able to handle football players and teams, with their statistics. To do so, as indicated in the Lab1.pdf instructions, we need to define the following classes:
+- Player: Represents individual soccer players with attributes such as gender, name, age, and various statistics, including tackles, passes, shots, assists, and goals. The class provides methods to update player statistics and print player information.
+-Team: Represents soccer teams, each with a name, country, gender, a list of players, and various team statistics, including matches played, wins, ties, losses, goals scored, and goals against. The class offers methods to add and remove players, play matches, and print team statistics.
+- Country: A simple class to represent the nationality of players and teams.
+- Gender: An enumeration to differentiate between male, female, and mixed gender entities.
+Further versions of the program may need to include more classes, such as Match or League, as we saw in Seminar 2 (which took place after Lab1 and hence we haven't implemented those changes into Lab1).
 
+2. A description of possible alternative solutions that were discussed, and a description of the chosen solution and the reason for choosing this solution rather than others. It is also a good idea to mention the related theoretical concepts of object-oriented programming that were applied as part of the solution.
+To design this program, we followed object-oriented programming (OOP) principles:
+- Encapsulation: we encapsulated class fields and provided getter methods to access private attributes, promoting data hiding.
+- Abstraction: We abstracted the internal details of player and team statistics, allowing users to interact with high-level methods.
+- Modularity and classes: We divided the code into separate classes, each responsible for a specific aspect of the soccer team management system, which promotes code organization and maintainability.
+- Enumeration: For gender representation, we employed an enumeration to keep the code clean and enhance readability.
 
+3. A conclusion that describes how well the solution worked in practice, i.e. did the tests show that the classes were correctly implemented? You can also mention any difficulties during the implementation as well as any doubts you might have had.
+At the beginning we had to fix the method update() of the class player because we had coded it the other way round and it was not working. However, thanks to the tests in the Main class we noticed this issue and we fixed it. 
 
-2. A description of possible alternative solutions that were discussed, and a description of the 
-chosen solution and the reason for choosing this solution rather than others. It is also a good 
-idea to mention the related theoretical concepts of object-oriented programming that were applied 
-as part of the solution.
+Moreover, we had to investigate a bit about lists in java and we finally decided to implement a LinkedList instead of an ArrayList or a List. We also had to investigate how to implement an Enumeration in Java and decided to do it in a separate document, such as we do with classes.
 
+Overall, we believe that our program is working as desired:
+- The Player class effectively creates player instances, maintains their statistics, and prints player information.
+- The Team class correctly handles the addition of players, playing matches, and printing team statistics based on the gender of the team and its players.
+- The Country class fulfills its role in associating players and teams with their respective countries.
+- The Main class showcases the code's functionality by creating players, teams, and simulating match results.
 
-3. A conclusion that describes how well the solution worked in practice, i.e. did the tests 
-show that the classes were correctly implemented? You can also mention any difficulties during 
-the implementation as well as any doubts you might have had.
