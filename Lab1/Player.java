@@ -42,11 +42,11 @@ public class Player {
 
     public void update(int t, int p, int s, int a, int g){
         noMatches++;
-        t += noTackles;
-        p += noPasses;
-        s += noShots;
-        a += noAssists;
-        g += noGoals;
+        noTackles += t;
+        noPasses += p;
+        noShots += s;
+        noAssists += a;
+        noGoals += g;
     }
 
     public void printStats(){

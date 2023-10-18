@@ -11,6 +11,8 @@ public class Main {
         upf.addPlayer(feryjhon);
         gironaFemaleTeam.addPlayer(jorge);
         feryjhon.printStats();
+        feryjhon.update(40,3,2,1,1);
+        feryjhon.printStats();
         gironaFemaleTeam.playMatch(5, 2);
         gironaFemaleTeam.printStats();
     }

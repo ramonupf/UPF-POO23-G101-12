@@ -20,7 +20,7 @@ public class Team {
         noMatches = 0;
         noWins = 0;
         noTies = 0;
-        noLosses = 0;
+        noLosses = 0; 
         goalsScored = 0;
         goalsAgainst = 0;
     }
