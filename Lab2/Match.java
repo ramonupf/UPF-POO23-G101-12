@@ -14,7 +14,7 @@ public class Match {
         homeScorers = new LinkedList<Player>();
         awayScorers = new LinkedList<Player>();
     }
-
+ 
     //getter methods
     public Team getHomeTeam() {
         return homeTeam;

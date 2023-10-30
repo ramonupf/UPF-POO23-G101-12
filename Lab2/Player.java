@@ -42,9 +42,21 @@ public class Player {
     }
 
     public void updateStats(Match match){
-        //int goals = 0;
-        //for loop to check goals of the pl
-        //update(0,0,0,0,goals);
+        int goals = 0;
+        // Check if the player is one of the scorers for the home team
+        for (Player scorer : match.getHomeScorers()) {
+            if (scorer.equals(this)) {
+                goals++;
+            }
+        }
+        // Check if the player is one of the scorers for the away team
+        for (Player scorer : match.getAwayScorers()) {
+            if (scorer.equals(this)) {
+                goals++;
+            }
+        }
+        // Update the player's statistics
+        update(0, 0, 0, 0, goals);
     }
 
     public void update(int t, int p, int s, int a, int g){
