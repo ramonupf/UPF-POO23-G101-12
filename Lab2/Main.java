@@ -4,9 +4,10 @@ public class Main {
         premierLeague = premierLeague.leagueFromCSV("Premier League","England",Gender.MALE);
         premierLeague.generateMatches();
         premierLeague.simulateMatches();
-        premierLeague.printMatches();
-        premierLeague.printTeams();
+        premierLeague.printMatches(); //PRINTS ALL MATCHES IN LEAGUE
+        premierLeague.printTeams(); //PRINTS ALL TEAMS IN LEAGUE
 
+        //EXAMPLE
         System.out.println("-----------------");
         int teamExample = 9;
         System.out.println("STATS OF TEAM "+premierLeague.getTeams().get(teamExample).getName());
@@ -14,7 +15,7 @@ public class Main {
             premierLeague.getTeams().get(5).getPlayers().get(i).printStats();
         }
         System.out.println();
-        //EXAPL
+        //EXAMPLE
         teamExample = 7;
         premierLeague.getTeams().get(teamExample).printStats();
     }
