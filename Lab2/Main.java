@@ -19,6 +19,5 @@ public class Main {
         teamExample = 7;
         premierLeague.getTeams().get(teamExample).printStats();
     }
-
 }
 
