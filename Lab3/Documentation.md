@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The problem in this **LAB 2** is to develop a Java program that simulates a sports league. The program should be capable of creating and managing teams, players, and matches. The main functionality includes adding and removing players from teams, simulating matches, and updating statistics for both teams and players. This program focuses on object-oriented programming principles, involving classes like `Team`, `Match`, `Player`, and `League`, each with specific methods and attributes.
+The problem in this **LAB 3** is to develop a Java program that simulates a sports league. The program should be capable of creating and managing teams, players, and matches. The main functionality includes adding and removing players from teams, simulating matches, and updating statistics for both teams and players. This program focuses on object-oriented programming principles, involving classes like `Team`, `Match`, `Player`, and `League`, each with specific methods and attributes.
 
 ### Classes and Methods:
 

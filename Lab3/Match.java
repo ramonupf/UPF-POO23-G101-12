@@ -1,12 +1,12 @@
 import java.util.*;
 
 public class Match {
-    private Team homeTeam;
-    private Team awayTeam;
-    private int homeGoals;
-    private int awayGoals;
-    private LinkedList<Player> homeScorers;
-    private LinkedList<Player> awayScorers;
+    protected Team homeTeam;
+    protected Team awayTeam;
+    protected int homeGoals;
+    protected int awayGoals;
+    protected LinkedList<Player> homeScorers;
+    protected LinkedList<Player> awayScorers;
     
     public Match(Team h, Team a){ //h for home and a for away
         homeTeam = h;
@@ -51,7 +51,7 @@ public class Match {
         addRandomScorers(awayGoals, false);
     }
 
-    private void addRandomScorers(int goals, boolean home){
+    protected void addRandomScorers(int goals, boolean home){
         Team team;
         if (home){
             team = homeTeam;
