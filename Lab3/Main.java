@@ -44,9 +44,9 @@ public class Main {
         
     }
 
-    private static League leagueFromCSV(String leagueName, String countryName, Gender leagueGender){
+    private static Competition leagueFromCSV(String leagueName, String countryName, Gender leagueGender){
         LinkedList<Team> teams = new LinkedList<>();
-        League league = null;
+        Competition league = null;
         try {
             File file = new File(leagueName+".csv");
             Scanner scanner = new Scanner(file);
@@ -62,7 +62,7 @@ public class Main {
 
                 if (league == null) {
                     // Create the league
-                    league = new League(leagueName, new Country(countryName), leagueGender);
+                    league = new Competition(leagueName, new Country(countryName), leagueGender);
                     System.out.println("Created League: " + league.getName());
                 }
 
