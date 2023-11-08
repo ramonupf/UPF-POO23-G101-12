@@ -13,9 +13,9 @@ public class CupMatch extends Match {
         awayGoals = random.nextInt(n);
         //extra time
         if(homeGoals == awayGoals){
-            n = 3;
-            homeGoals += random.nextInt(n);
-            awayGoals += random.nextInt(n);
+            int maxExtraTimeGoals = 3;
+            homeGoals += random.nextInt(maxExtraTimeGoals);
+            awayGoals += random.nextInt(maxExtraTimeGoals);
         }
         //home team scorers:
         addRandomScorers(homeGoals, true);
@@ -24,8 +24,8 @@ public class CupMatch extends Match {
 
         //penalties. Scorers statistics are not affected by penalties. It just decides the winner with 1 or 0.
         if(homeGoals == awayGoals){
-            n = 1;
-            int winnerBoolean = random.nextInt(n);
+            int penaltyBool = 1;
+            int winnerBoolean = random.nextInt(penaltyBool);
             if(winnerBoolean==1){
                 homeGoals +=1;
             }else{

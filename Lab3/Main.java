@@ -1,3 +1,78 @@
+public class Main {
+    public static void main(String[] args) {
+        Country usa = new Country("USA");
+        Country brazil = new Country("Brazil");
+
+        // Create players
+        Player player1 = new Player(false, "John", 25, usa);
+        Player player2 = new Player(false, "Maria", 28, brazil);
+        Player player3 = new Player(false, "David", 22, usa);
+
+        // Create teams
+        Team team1 = new Team("Team USA", usa, Gender.MALE);
+        Team team2 = new Team("Team Brazil", brazil, Gender.MALE);
+
+        // Add players to teams
+        team1.addPlayer(player1);
+        team1.addPlayer(player3);
+        team2.addPlayer(player2);
+
+        // Print player and team stats
+        player1.printStats();
+        player2.printStats();
+        player3.printStats();
+
+        team1.printStats();
+        team2.printStats();
+
+        Team team3 = new Team("Team 3", brazil, Gender.MALE);
+        Team team4 = new Team("Team 4", brazil, Gender.MALE);
+
+        team3.addPlayer(player1);
+        team3.addPlayer(player3);
+        team4.addPlayer(player2);
+
+        Competition competition = new Competition("Test Competition", usa, Gender.MALE, true);
+
+        // Add teams to the competition
+        competition.addTeam(team1);
+        competition.addTeam(team2);
+        competition.addTeam(team3);
+        competition.addTeam(team4);
+
+        // Generate matches
+        competition.generateMatches();
+
+        // Simulate matches
+        competition.simulateMatches();
+
+        // Print teams and matches
+        competition.printTeams();
+        //competition.printMatches();
+
+        // Create a Cup competition
+        Cup cupCompetition = new Cup("Cup Competition", brazil, Gender.FEMALE, true);
+
+        // Add teams to the Cup competition
+        cupCompetition.addTeam(team1);
+        cupCompetition.addTeam(team2);
+        cupCompetition.addTeam(team3);
+        cupCompetition.addTeam(team4);
+
+        // Generate Cup matches
+        cupCompetition.generateMatches();
+
+        // Simulate Cup matches
+        cupCompetition.simulateMatches();
+
+        // Print teams and matches for the Cup competition
+        cupCompetition.printTeams();
+        cupCompetition.printMatches();
+    }
+}
+
+
+/*
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
@@ -29,7 +104,7 @@ public class Main {
         //EXAMPLE
         teamExample = 7;
         premierLeague.getTeams().get(teamExample).printStats();
-        */
+        
 
         //Check methods
         Country spainCountry = new Country("Spain");
@@ -121,3 +196,4 @@ public class Main {
 
 }
 
+*/

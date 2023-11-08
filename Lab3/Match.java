@@ -58,10 +58,10 @@ public class Match {
         }else{
             team = awayTeam;
         }
-        int n = team.getPlayers().size();
+        int teamSize = team.getPlayers().size();
         Random random = new Random();
         for(int i=0; i<goals;i++){
-            int scorerIndex = random.nextInt(n);
+            int scorerIndex = random.nextInt(teamSize);
             if(home){
                 homeScorers.add(homeTeam.getPlayers().get(scorerIndex));
             }

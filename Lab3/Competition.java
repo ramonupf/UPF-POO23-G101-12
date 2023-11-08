@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Competition {
+public class Competition { //could be abstract but the UML doesn't say so
     protected String name;
     protected Country country;
     protected Gender gender;
