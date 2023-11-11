@@ -27,10 +27,14 @@ public class Main {
 
         Team team3 = new Team("Team 3", brazil, Gender.MALE);
         Team team4 = new Team("Team 4", brazil, Gender.MALE);
+        Team team5 = new Team("Team 5", brazil, Gender.MALE);
 
         team3.addPlayer(player1);
         team3.addPlayer(player3);
         team4.addPlayer(player2);
+        team5.addPlayer(player2);
+        
+
 
         Competition competition = new Competition("Test Competition", usa, Gender.MALE, true);
 
@@ -58,6 +62,7 @@ public class Main {
         cupCompetition.addTeam(team2);
         cupCompetition.addTeam(team3);
         cupCompetition.addTeam(team4);
+        cupCompetition.addTeam(team5);
 
         // Generate Cup matches
         cupCompetition.generateMatches();
