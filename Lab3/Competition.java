@@ -83,7 +83,7 @@ public class Competition { //could be abstract but the UML doesn't say so
     }
 
     public void printMatches(){
-        System.out.println("Matches in " + name + " League:");
+        System.out.printf("%d matches in " + name + " League:\n", matches.size());
         for (Match match : matches) {
             System.out.println("Match: " + match.getHomeTeam().getName() + " vs. " + match.getAwayTeam().getName());
             System.out.println("Result: " + match.getHomeGoals() + " - " + match.getAwayGoals());

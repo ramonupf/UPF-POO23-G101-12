@@ -33,7 +33,6 @@ public class Outfielder extends Player {
                 }
             }
         }
-
         update(0,0,0,0,goals);
     }
     

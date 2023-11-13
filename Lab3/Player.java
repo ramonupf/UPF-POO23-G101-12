@@ -37,8 +37,6 @@ public class Player {
         noMatches++;
     }
 
-
-
     public void printStats(){
         System.out.printf("Stats of %s:\n", name);
         if(isFemale()){
@@ -49,8 +47,7 @@ public class Player {
         System.out.printf("Country:  %s\n", nationality.getName());
         System.out.printf("Age: %d\n", age);
         System.out.printf("Played matches: %d\n", noMatches);
-    } 
-   
+    }   
 }
 
 

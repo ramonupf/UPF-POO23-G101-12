@@ -1,4 +1,5 @@
 public class Main {
+    //this main class checks that the main methods of lab3 work. 
     public static void main(String[] args) {
         Country usa = new Country("USA");
         Country brazil = new Country("Brazil");
@@ -28,14 +29,14 @@ public class Main {
         Team team3 = new Team("Team 3", brazil, Gender.MALE);
         Team team4 = new Team("Team 4", brazil, Gender.MALE);
         Team team5 = new Team("Team 5", brazil, Gender.MALE);
+        Team team6 = new Team("Team 6", usa, Gender.MALE);
 
         team3.addPlayer(player1);
         team3.addPlayer(player3);
         team4.addPlayer(player2);
         team5.addPlayer(player2);
+        team6.addPlayer(player2);
         
-
-
         Competition competition = new Competition("Test Competition", usa, Gender.MALE, true);
 
         // Add teams to the competition
@@ -73,7 +74,39 @@ public class Main {
         // Print teams and matches for the Cup competition
         cupCompetition.printTeams();
         cupCompetition.printMatches();
+    
+
+    
+        // Create a Group play competition
+        GroupPlay groupPlayCompetition = new GroupPlay("Group Play Competition", brazil, Gender.FEMALE, true);
+
+        // Add teams to the Group play competition
+        groupPlayCompetition.addTeam(team1);
+        groupPlayCompetition.addTeam(team2);
+        groupPlayCompetition.addTeam(team3);
+        groupPlayCompetition.addTeam(team4);
+        groupPlayCompetition.addTeam(team5);
+        groupPlayCompetition.addTeam(team6);
+        groupPlayCompetition.addTeam(team6);
+        groupPlayCompetition.addTeam(team6);
+        groupPlayCompetition.addTeam(team6);
+        groupPlayCompetition.addTeam(team6);
+        groupPlayCompetition.addTeam(team6);
+
+
+        // Generate Cup matches
+        groupPlayCompetition.generateMatches();
+
+        // Simulate Cup matches
+        groupPlayCompetition.simulateMatches();
+
+        // Print teams and matches for the Cup competition
+        groupPlayCompetition.printTeams();
+        groupPlayCompetition.printMatches();
+
+    
     }
+
 }
 
 
