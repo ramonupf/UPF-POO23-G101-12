@@ -64,8 +64,8 @@ public class Cup extends Competition {
         for (CupMatch match : mr.get(roundIndex)) {
             match.simulateMatch(); // Simulate the match
             //Update stats for home team and away team
-            match.getHomeTeam().updateStats(match);
-            match.getAwayTeam().updateStats(match);
+            match.getHomeTeam().update(this,match);
+            match.getAwayTeam().update(this,match);
             //Update stats for players in the home team
             for (Player player : match.getHomeTeam().getPlayers()) {
                 player.updateStats(match);

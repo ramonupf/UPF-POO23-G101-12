@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class Player {
     protected boolean female;
@@ -5,15 +6,14 @@ public class Player {
     protected int age;
     protected Country nationality;
     protected int noMatches;
-
+    protected HashMap<Competition,PlayerStats> stats;
 
     public Player(boolean g, String n, int a, Country nat){
         female = g;
         name = n;
         age = a;
         nationality = nat;
-        noMatches=0;
-
+        stats = new HashMap<Competition, PlayerStats>();
     }
 
     //getters
@@ -33,21 +33,19 @@ public class Player {
         return female;
     }
 
-    public void updateStats(Match match){
-        noMatches++;
+ 
+    public void update(Competition c, Match m) {
+        PlayerStats provStats = this.stats.get(c);
+        if (provStats != null) {
+            stats.get(c).updateStats(m);
+        }else { 
+            //do nothing
+        }
+        
+        
     }
 
-    public void printStats(){
-        System.out.printf("Stats of %s:\n", name);
-        if(isFemale()){
-            System.out.printf("Gender: Female.\n");
-        } else {
-            System.out.printf("Gender: Male.\n");
-        }
-        System.out.printf("Country:  %s\n", nationality.getName());
-        System.out.printf("Age: %d\n", age);
-        System.out.printf("Played matches: %d\n", noMatches);
-    }   
+ 
 }
 
 

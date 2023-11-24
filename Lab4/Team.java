@@ -1,28 +1,18 @@
-import java.util.LinkedList;
+import java.util.*;
 
 public class Team {
 	protected String name;
     protected Country country;
     protected Gender gender;
     protected LinkedList<Player> players;
-    protected int noMatches;
-    protected int noWins;
-    protected int noTies;
-    protected int noLosses;
-    protected int goalsScored;
-    protected int goalsAgainst; 
-
+    protected HashMap<Competition,TeamStats> stats;
+    
     public Team(String n, Country c, Gender g){
         name = n;
         country = c;
         gender = g;
         players = new LinkedList<Player>();
-        noMatches = 0;
-        noWins = 0;
-        noTies = 0;
-        noLosses = 0; 
-        goalsScored = 0;
-        goalsAgainst = 0;
+        stats = new HashMap<Competition,TeamStats>();
     }
 
     public String getName() {
@@ -58,43 +48,14 @@ public class Team {
         players.remove(p);
     }
 
-    public void updateStats(Match match){
-        if(match.getHomeTeam().getName()==name) {
-            playMatch(match.getHomeGoals(), match.getAwayGoals());
+    public void update(Competition c, Match match){
+        TeamStats provStats = this.stats.get(c);
+        if (provStats == null) {
+            TeamStats newStats = new TeamStats(this);
+            stats.put(c,newStats);
         }
-        else if (match.getAwayTeam().getName()==name){
-            playMatch(match.getAwayGoals(), match.getHomeGoals());
+        stats.get(c).updateStats(match);
+        
         }
-    }
 
-    public void playMatch(int forGoals, int againstGoals){
-        goalsScored += forGoals;
-        goalsAgainst += againstGoals;
-        noMatches++;
-        if(forGoals > againstGoals){
-            noWins++;
-        } else if(againstGoals > forGoals){
-            noLosses++;
-        } else{
-            noTies++;
-        }
-    }
-    
-    public void printStats(){
-        System.out.printf("Stats of %s:\n", name);
-        System.out.printf("Country: %s\n", getCountry().getName());
-        if(getGender()==Gender.FEMALE){
-            System.out.printf("Gender: Female.\n");
-        } else if (getGender()==Gender.MALE){
-            System.out.printf("Gender: Male.\n");
-        } else{
-            System.out.printf("Gender: Mixed.\n");
-        }
-        System.out.printf("Played matches: %d\n", noMatches);
-        System.out.printf("Wins: %d\n", noWins);
-        System.out.printf("Ties: %d\n", noTies);
-        System.out.printf("Losses: %d\n", noLosses);
-        System.out.printf("Goals scored: %d\n", goalsScored);
-        System.out.printf("Goals against: %d\n", goalsAgainst);
-    }
 }
