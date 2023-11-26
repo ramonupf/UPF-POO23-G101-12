@@ -29,9 +29,15 @@ public class Player {
         return nationality;
     }
 
+    public PlayerStats getStats(Competition c){
+        return stats.get(c);
+    }
+
     public boolean isFemale(){
         return female;
     }
+
+    
 
  
     public void update(Competition c, Match m) {

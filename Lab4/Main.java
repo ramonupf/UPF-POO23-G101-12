@@ -1,13 +1,145 @@
 public class Main {
+    // This main class checks that the main methods of the application work.
+    public static void main(String[] args) {
+        // Creating countries
+        Country usa = new Country("USA");
+        Country brazil = new Country("Brazil");
+        Country germany = new Country("Germany");
+        Country japan = new Country("Japan");
+        Country spain = new Country("Spain");
+
+        // Creating players for USA
+        Goalkeeper playerUSA1 = new Goalkeeper(false,"Alex", 25, usa);
+        Outfielder playerUSA2 = new Outfielder(true,"Taylor", 22, usa);
+        Outfielder playerUSA3 = new Outfielder(false,"Jordan", 24, usa);
+        Outfielder playerUSA4 = new Outfielder(true,"Casey", 27, usa);
+        Outfielder playerUSA5 = new Outfielder(false,"Jamie", 23, usa);
+
+        // Creating players for Brazil
+        Goalkeeper playerBrazil1 = new Goalkeeper(false,"Carlos", 26, brazil);
+        Outfielder playerBrazil2 = new Outfielder(true, "Maria", 28, brazil);
+        Outfielder playerBrazil3 = new Outfielder(false, "Pedro", 25, brazil);
+        Outfielder playerBrazil4 = new Outfielder(true, "Fernanda", 23, brazil);
+        Outfielder playerBrazil5 = new Outfielder(false,"Lucas", 24, brazil);
+
+        // Creating players for Germany
+        Goalkeeper playerGermany1 = new Goalkeeper(false, "Hans", 26, germany);
+        Outfielder playerGermany2 = new Outfielder(true,"Greta", 27, germany);
+        Outfielder playerGermany3 = new Outfielder(false,"Felix", 23, germany);
+        Outfielder playerGermany4 = new Outfielder(true,"Sophia", 24, germany);
+        Outfielder playerGermany5 = new Outfielder(false,"Karl", 25, germany);
+
+        // Creating players for Japan
+        Goalkeeper playerJapan1 = new Goalkeeper(false,"Yuto", 25, japan);
+        Outfielder playerJapan2 = new Outfielder(true,"Sakura", 23, japan);
+        Outfielder playerJapan3 = new Outfielder(false,"Kenji", 27, japan);
+        Outfielder playerJapan4 = new Outfielder(true,"Aiko", 22, japan);
+        Outfielder playerJapan5 = new Outfielder(false,"Daichi", 24, japan);
+
+        // Creating players for Spain
+        Goalkeeper playerSpain1 = new Goalkeeper(false,"Miguel", 24, spain);
+        Outfielder playerSpain2 = new Outfielder(true,"Isabella", 26, spain);
+        Outfielder playerSpain3 = new Outfielder(false,"Diego", 27, spain);
+        Outfielder playerSpain4 = new Outfielder(true,"Luna", 22, spain);
+        Outfielder playerSpain5 = new Outfielder(false,"Rafael", 25, spain);
+
+        // Creating teams
+        NationalTeam teamUSA = new NationalTeam("Team USA", usa, Gender.MALE);
+        NationalTeam teamBrazil = new NationalTeam("Team Brazil", brazil, Gender.FEMALE);
+        NationalTeam teamGermany = new NationalTeam("Team Germany", germany, Gender.MALE);
+        NationalTeam teamJapan = new NationalTeam("Team Japan", japan, Gender.FEMALE);
+        NationalTeam teamSpain = new NationalTeam("Team Spain", spain, Gender.MALE);
+
+        // Adding players to teams
+        teamUSA.addPlayer(playerUSA1);
+        teamUSA.addPlayer(playerUSA2);
+        teamUSA.addPlayer(playerUSA3);
+        teamUSA.addPlayer(playerUSA4);
+        teamUSA.addPlayer(playerUSA5);
+        teamUSA.addPlayer(playerBrazil2);
+
+        teamBrazil.addPlayer(playerBrazil1);
+        teamBrazil.addPlayer(playerBrazil2);
+        teamBrazil.addPlayer(playerBrazil3);
+        teamBrazil.addPlayer(playerBrazil4);
+        teamBrazil.addPlayer(playerBrazil5);
+
+        teamGermany.addPlayer(playerGermany1);
+        teamGermany.addPlayer(playerGermany2);
+        teamGermany.addPlayer(playerGermany3);
+        teamGermany.addPlayer(playerGermany4);
+        teamGermany.addPlayer(playerGermany5);
+
+        teamJapan.addPlayer(playerJapan1);
+        teamJapan.addPlayer(playerJapan2);
+        teamJapan.addPlayer(playerJapan3);
+        teamJapan.addPlayer(playerJapan4);
+        teamJapan.addPlayer(playerJapan5);
+
+        teamSpain.addPlayer(playerSpain1);
+        teamSpain.addPlayer(playerSpain2);
+        teamSpain.addPlayer(playerSpain3);
+        teamSpain.addPlayer(playerSpain4);
+        teamSpain.addPlayer(playerSpain5);
+        
+
+        //competitions:
+        League league = new League("International League", spain, Gender.MALE, false);
+        Cup worldCup = new Cup("World Cup", spain, Gender.FEMALE,false);
+
+        // Adding teams to competitions
+        league.addTeam(teamUSA);
+        league.addTeam(teamBrazil);
+        league.addTeam(teamGermany);
+        league.addTeam(teamJapan);
+        league.addTeam(teamSpain);
+
+        worldCup.addTeam(teamUSA);
+        worldCup.addTeam(teamBrazil);
+        worldCup.addTeam(teamGermany);
+        worldCup.addTeam(teamJapan);
+        worldCup.addTeam(teamSpain);
+
+        // Simulating and displaying competition outcomes
+        simulateAndDisplayCompetition(league);
+        simulateAndDisplayCompetition(worldCup);
+
+        //Printing individual player stats:
+        playerUSA1.getStats(league).printStats();
+        playerJapan4.getStats(worldCup).printStats();
+
+    }
+
+    private static void simulateAndDisplayCompetition(Competition competition) {
+        if (competition instanceof League) {
+            League league = (League) competition;
+            league.generateMatches();
+            league.simulateMatches();
+            league.printTeams();
+            league.printMatches();
+            league.printTable();
+            league.printGoalScorers(4);
+        } else if (competition instanceof Cup) {
+            Cup cup = (Cup) competition;
+            cup.generateMatches();
+            cup.simulateMatches();
+            cup.printTeams();
+            cup.printMatches();
+            cup.printGoalScorers(4);
+        }
+    }
+}
+/*
+public class Main {
     //this main class checks that the main methods of lab3 work. 
     public static void main(String[] args) {
         Country usa = new Country("USA");
         Country brazil = new Country("Brazil");
 
         // Create players
-        Player player1 = new Player(false, "John", 25, usa);
-        Player player2 = new Player(false, "Maria", 28, brazil);
-        Player player3 = new Player(false, "David", 22, usa);
+        Goalkeeper player1 = new Goalkeeper(false, "John", 25, usa);
+        Outfielder player2 = new Outfielder(false, "Maria", 28, brazil);
+        Outfielder player3 = new Outfielder(false, "David", 22, usa);
 
         // Create teams
         Team team1 = new Team("Team USA", usa, Gender.MALE);
@@ -17,14 +149,6 @@ public class Main {
         team1.addPlayer(player1);
         team1.addPlayer(player3);
         team2.addPlayer(player2);
-
-        // Print player and team stats
-        player1.printStats();
-        player2.printStats();
-        player3.printStats();
-
-        team1.printStats();
-        team2.printStats();
 
         Team team3 = new Team("Team 3", brazil, Gender.MALE);
         Team team4 = new Team("Team 4", brazil, Gender.MALE);
@@ -37,7 +161,8 @@ public class Main {
         team5.addPlayer(player2);
         team6.addPlayer(player2);
         
-        Competition competition = new Competition("Test Competition", usa, Gender.MALE, true);
+        League competition = new League("Test Competition", usa, Gender.MALE, true);
+
 
         // Add teams to the competition
         competition.addTeam(team1);
@@ -54,6 +179,8 @@ public class Main {
         // Print teams and matches
         competition.printTeams();
         //competition.printMatches();
+        player2.getStats(competition).printStats();
+        player3.getStats(competition).printStats();
 
         // Create a Cup competition
         Cup cupCompetition = new Cup("Cup Competition", brazil, Gender.FEMALE, true);
@@ -104,13 +231,21 @@ public class Main {
         groupPlayCompetition.printTeams();
         groupPlayCompetition.printMatches();
 
+        // Print player and team stats
+        player1.getStats(cupCompetition).printStats();
+
+        team1.getStats(cupCompetition).printStats();
+        team2.getStats(cupCompetition).printStats();
+
+        competition.printTable();
+        competition.printGoalScorers(5);
     
     }
 
 }
 
 
-/*
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;

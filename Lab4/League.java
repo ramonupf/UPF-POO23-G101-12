@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+import java.util.*;
 
 public class League extends Competition {
     
@@ -21,7 +21,18 @@ public class League extends Competition {
     }
 
     public void printTable(){
-        //empty
+        ArrayList<TeamStats> teamStatsList = new ArrayList<TeamStats>();
+        for (Team team: teams){
+            teamStatsList.add(team.getStats(this));
+        }
+        Collections.sort(teamStatsList);
+        System.out.printf("Classification of %s\n", this.name);
+        System.out.printf("     Team     | Points | Played Matches | Wins | Ties | Losses | Scored Goals | Received Goals |\n");
+        int i =0;
+        for(TeamStats stats: teamStatsList){
+            i++;
+            System.out.printf("%d |    %s    |   %d    |    %d    |    %d    |    %d    |    %d    |    %d    |    %d    |\n", i, stats.getTeam().getName(),stats.getPoints(), stats.getNoMatches(), stats.getNoWins(), stats.getNoTies(), stats.getNoLosses(),stats.getoGoalsScored(), stats.getGoalsAgainst());
+        }
     }
 
 }

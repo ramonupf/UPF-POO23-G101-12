@@ -28,6 +28,10 @@ public class Team {
         return gender;
     }
 
+    public TeamStats getStats(Competition c){
+        return stats.get(c);
+    }
+
     public LinkedList<Player> getPlayers(){
         return players;
     }

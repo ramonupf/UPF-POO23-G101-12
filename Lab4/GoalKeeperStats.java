@@ -38,8 +38,20 @@ public class GoalkeeperStats extends PlayerStats{
 
     @Override
     public int compareTo(PlayerStats o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+        GoalkeeperStats other = (GoalkeeperStats) o;
+        if(this.noGoalsLet < other.noGoalsLet){ 
+            return -1;
+        } else if (this.noGoalsLet > other.noGoalsLet){
+            return 1;
+        }
+
+        if(this.noSaves < other.noSaves){ 
+            return -1;
+        } else if (this.noSaves > other.noSaves){
+            return 1;
+        }
+
+        return 0;
     }
      
 }

@@ -8,6 +8,16 @@ public abstract class PlayerStats implements Comparable<PlayerStats>{
         noMatches = 0;
     }
 
+
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public int getNoMatches(){
+        return noMatches;
+    }
+    
     public void updateStats(Match m){
         noMatches++;
     }

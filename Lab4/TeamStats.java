@@ -5,7 +5,38 @@ public class TeamStats implements Comparable<TeamStats>{
     private int noTies;
     private int noLosses;
     private int goalsScored;
-    private int goalsAgainst; 
+    private int goalsAgainst;
+
+    public Team getTeam(){
+        return team;
+    }
+
+    public int getNoMatches(){
+        return noMatches;
+    }
+
+    public int getNoWins(){
+        return noWins;
+    }
+
+    public int getNoTies(){
+        return noTies;
+    }
+    public int getNoLosses(){
+        return noLosses;
+    }
+
+    public int getGoalsAgainst(){
+        return goalsAgainst;
+    }
+
+    public int getoGoalsScored(){
+        return goalsScored;
+    }
+    public int getPoints(){
+        return 3*noWins + noTies;
+    }
+
 
     public TeamStats(Team t){
         team = t;

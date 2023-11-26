@@ -43,12 +43,16 @@ public class Competition { //could be abstract but the UML doesn't say so
     }
 
     public void addTeam(Team t){
-        if (clubs && !(t instanceof NationalTeam)) {
-            teams.add(t);
-        } else if (!clubs && t instanceof NationalTeam) {
-            teams.add(t);
-        } else{
-            System.out.println("The type of competition and the type of club do not match.");
+        if(t.getGender() != gender){
+            System.out.println("The gender of the competition and the gender of the team do not match.");
+        } else {
+            if (clubs && !(t instanceof NationalTeam)) {
+                teams.add(t);
+            } else if (!clubs && t instanceof NationalTeam) {
+                teams.add(t);
+            } else{
+                System.out.println("The type of competition and the type of team do not match.");
+            }
         }
     }
 
@@ -64,11 +68,11 @@ public class Competition { //could be abstract but the UML doesn't say so
             match.getAwayTeam().update(this,match);
             //Update stats for players in the home team
             for (Player player : match.getHomeTeam().getPlayers()) {
-                player.updateStats(match);
+                player.update(this,match);
             }
             //Update stats for players in the away team
             for (Player player : match.getAwayTeam().getPlayers()) {
-                player.updateStats(match);
+                player.update(this,match);
             }
         }
     }
@@ -91,4 +95,21 @@ public class Competition { //could be abstract but the UML doesn't say so
         }
     }
 
+    public void printGoalScorers(int playerNum){
+        ArrayList<OutfielderStats> outfielderStatsList = new ArrayList<OutfielderStats>();
+        for (Team team: teams){
+            for(Player player: team.getPlayers()){
+                if (player instanceof Outfielder)
+                    outfielderStatsList.add((OutfielderStats) player.getStats(this));
+            }
+        }
+        Collections.sort(outfielderStatsList);
+        System.out.printf("Goal Scorers of %s\n", this.name);
+        System.out.printf("     Player   |  Goals | Played Matches | \n");
+        int i = 0;
+        while(i<playerNum){
+            System.out.printf("   %d   |  %s    |    %d    |    %d    |\n", i+1, outfielderStatsList.get(i).getPlayer().getName(), outfielderStatsList.get(i).getNoGoals(), outfielderStatsList.get(i).getNoMatches());
+            i++;
+        }
+    }
 }

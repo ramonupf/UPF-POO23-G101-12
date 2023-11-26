@@ -68,11 +68,11 @@ public class Cup extends Competition {
             match.getAwayTeam().update(this,match);
             //Update stats for players in the home team
             for (Player player : match.getHomeTeam().getPlayers()) {
-                player.updateStats(match);
+                player.update(this,match);
             }
             //Update stats for players in the away team
             for (Player player : match.getAwayTeam().getPlayers()) {
-                player.updateStats(match);
+                player.update(this,match);
             }
             matches.add(match);
         }
