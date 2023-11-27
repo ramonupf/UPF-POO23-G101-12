@@ -118,14 +118,14 @@ public class Main {
             league.printTeams();
             league.printMatches();
             league.printTable();
-            league.printGoalScorers(4);
+            league.printGoalScorers(10);
         } else if (competition instanceof Cup) {
             Cup cup = (Cup) competition;
             cup.generateMatches();
             cup.simulateMatches();
             cup.printTeams();
             cup.printMatches();
-            cup.printGoalScorers(4);
+            cup.printGoalScorers(10);
         }
     }
 }

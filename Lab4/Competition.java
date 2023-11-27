@@ -105,10 +105,13 @@ public class Competition { //could be abstract but the UML doesn't say so
         }
         Collections.sort(outfielderStatsList);
         System.out.printf("Goal Scorers of %s\n", this.name);
-        System.out.printf("     Player   |  Goals | Played Matches | \n");
+        System.out.println("----------------------------");
+        System.out.printf("%-5s | %-20s | %-6s | %-15s\n", "Rank", "Player", "Goals", "Played Matches");
+        Iterator<OutfielderStats> iterator = outfielderStatsList.iterator();
         int i = 0;
-        while(i<playerNum){
-            System.out.printf("   %d   |  %s    |    %d    |    %d    |\n", i+1, outfielderStatsList.get(i).getPlayer().getName(), outfielderStatsList.get(i).getNoGoals(), outfielderStatsList.get(i).getNoMatches());
+        while(iterator.hasNext() && i<playerNum){
+            OutfielderStats stats = iterator.next();
+            System.out.printf("%-5d | %-20s | %-6d | %-15d\n", i+1, stats.getPlayer().getName(), stats.getNoGoals(), stats.getNoMatches());
             i++;
         }
     }

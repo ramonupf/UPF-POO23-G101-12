@@ -27,11 +27,14 @@ public class League extends Competition {
         }
         Collections.sort(teamStatsList);
         System.out.printf("Classification of %s\n", this.name);
-        System.out.printf("     Team     | Points | Played Matches | Wins | Ties | Losses | Scored Goals | Received Goals |\n");
+        System.out.printf("%-3s | %-15s | %-7s | %-15s | %-5s | %-5s | %-7s | %-13s | %-15s\n", 
+        "No.", "Team", "Points", "Played Matches", "Wins", "Ties", "Losses", "Scored Goals", "Received Goals");
         int i =0;
         for(TeamStats stats: teamStatsList){
             i++;
-            System.out.printf("%d |    %s    |   %d    |    %d    |    %d    |    %d    |    %d    |    %d    |    %d    |\n", i, stats.getTeam().getName(),stats.getPoints(), stats.getNoMatches(), stats.getNoWins(), stats.getNoTies(), stats.getNoLosses(),stats.getoGoalsScored(), stats.getGoalsAgainst());
+            System.out.printf("%-3d | %-15s | %-7d | %-15d | %-5d | %-5d | %-7d | %-13d | %-15d\n",
+            i, stats.getTeam().getName(),stats.getPoints(), stats.getNoMatches(), stats.getNoWins(),
+            stats.getNoTies(), stats.getNoLosses(),stats.getoGoalsScored(), stats.getGoalsAgainst());
         }
     }
 
