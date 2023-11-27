@@ -1,4 +1,3 @@
-
 public class GoalkeeperStats extends PlayerStats{
     private int noSaves;
     private int noGoalsLet;
