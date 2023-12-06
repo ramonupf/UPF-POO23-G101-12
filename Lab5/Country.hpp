@@ -13,7 +13,6 @@ private:
 	std::string name;
 	
 public:
-
 	Country(std::string n) {
 		name = n;
 	}
