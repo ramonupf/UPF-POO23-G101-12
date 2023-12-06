@@ -34,7 +34,7 @@ Also derived from `Player`, it focuses on attributes and methods relevant to out
 - **updateStats(Match * m)**: Updates the outfielder's statistics based on their performance in the match. It checks whether the outfielder has scored any goals in the match and updates `noGoals` accordingly.
 - **printStats()**: Outputs the detailed statistics of the outfielder, including goals, passes, assists, shots, and tackles.
 
-## Main Function
+### Main Function
 In the `main` function, these classes are instantiated and used to simulate a soccer match. Players are created and assigned to teams, and a match is simulated between these teams. After the match, the `updateStats` method of each player is called to reflect their performance in the match, and their statistics are printed using `printStats`.
 
 ## Conclusion
